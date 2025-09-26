@@ -6,6 +6,7 @@ interface ButtonProps {
   color?: string;
   textColor: string;
   onClick?: () => void;
+  disabled?: boolean 
 }
 
 export default function Button({
