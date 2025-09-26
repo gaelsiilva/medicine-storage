@@ -5,7 +5,7 @@ import { NextResponse, type NextRequest } from "next/server";
 export function createSupabaseServerClientFromContext({ req, res }: GetServerSidePropsContext) {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    process.env.NEXT_PUBLIC__SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll: () =>
@@ -27,7 +27,7 @@ export function createSupabaseServerClientFromContext({ req, res }: GetServerSid
 export function createSupabaseMiddlewareClient(req: NextRequest, res: NextResponse) {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
+    process.env.NEXT_PUBLIC__SUPABASE_ANON_KEY!,
     {
       cookies: {
         getAll: () => req.cookies.getAll(),
@@ -44,7 +44,7 @@ export function createSupabaseMiddlewareClient(req: NextRequest, res: NextRespon
 export function createComponentClient(){
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!
+    process.env.NEXT_PUBLIC__SUPABASE_ANON_KEY!
   )
 
   return supabase;
